@@ -2,3 +2,9 @@
 
 // Create an array that describes yourself. Use the three primitive data types you've learned
 // It should contain your name (string), your age (number), and whether you like pizza (boolean)
+
+let person = ["name", 100, true]
+
+console.log(person[0])
+console.log(person)
+console.log(person.length)
