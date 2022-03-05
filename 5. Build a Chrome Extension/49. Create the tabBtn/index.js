@@ -2,6 +2,7 @@ let myLeads = []
 const inputEl = document.getElementById("input-el")
 const inputBtn = document.getElementById("input-btn")
 const ulEl = document.getElementById("ul-el")
+const tabBtn = document.getElementById("tab-btn")
 const deleteBtn = document.getElementById("delete-btn")
 const leadsFromLocalStorage = JSON.parse( localStorage.getItem("myLeads") )
 // 1. Grab the SAVE TAB button and store it in a tabBtn variable
@@ -11,8 +12,9 @@ if (leadsFromLocalStorage) {
     render(myLeads)
 }
 
-// 2. Listen for clicks on tabBtn. Log Per's LinkedIn URL to the console
+const tabs = [{url: "link"}]
 
+// 2. Listen for clicks on tabBtn. Log Per's LinkedIn URL to the console
 
 function render(leads) {
     let listItems = ""
@@ -35,8 +37,16 @@ deleteBtn.addEventListener("dblclick", function() {
 })
 
 inputBtn.addEventListener("click", function() {
-    myLeads.push(inputEl.value)
+    saveLead(inputEl.value)
     inputEl.value = ""
+})
+
+tabBtn.addEventListener("click", function() {
+    saveLead(tabs[0].url)
+})
+
+function saveLead(lead) {
+    myLeads.push(lead)
     localStorage.setItem("myLeads", JSON.stringify(myLeads) )
     render(myLeads)
-})
+}

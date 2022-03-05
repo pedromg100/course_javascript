@@ -1,17 +1,23 @@
-let myLeads = []
 const inputEl = document.getElementById("input-el")
 const inputBtn = document.getElementById("input-btn")
 const ulEl = document.getElementById("ul-el")
+const deleteBtn = document.getElementById("delete-btn")
 // 1. Store the delete button in a deleteBtn variable
-let leadsFromLocalStorage = JSON.parse( localStorage.getItem("myLeads") )
 
-if (leadsFromLocalStorage) {
-    myLeads = leadsFromLocalStorage
+let myLeads = JSON.parse( localStorage.getItem("myLeads") )
+if (!myLeads) {
+    myLeads = []
+} else {
     renderLeads()
 }
 
 // 2. Listen for double clicks on the delete button (google it!)
 // 3. When clicked, clear localStorage, myLeads, and the DOM
+deleteBtn.addEventListener("dblclick", function(){
+    myLeads = []
+    localStorage.clear()
+    renderLeads()
+})
 
 inputBtn.addEventListener("click", function() {
     myLeads.push(inputEl.value)

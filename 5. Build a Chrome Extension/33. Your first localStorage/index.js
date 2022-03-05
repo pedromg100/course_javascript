@@ -7,6 +7,11 @@ const ulEl = document.getElementById("ul-el")
 // 2. Refresh the page. Get the value and log it to the console
 // 3. Clear localStorage
 
+localStorage.setItem("Key 1", "Value 1")
+console.log(localStorage.getItem("Key 1"))
+localStorage.clear()
+console.log(localStorage.getItem("Key 1"))
+
 // HINTS:
 // localStorage.setItem(key, value)
 // localStorage.getItem(key)
